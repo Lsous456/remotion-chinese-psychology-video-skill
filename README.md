@@ -1,6 +1,6 @@
-# Remotion 中文心理短片 Skill
+# Remotion 中文心理短片 Claude Skill
 
-这是一个用于 Codex/Agent Skills 的可复用技能，目标是让 agent 根据中文心理学或思想类文案，生成完整的 Remotion v4 TypeScript 工程，并交付可运行的 zip。
+这是一个主要面向 Claude Code 的 Agent Skill，也兼容 Codex 等支持 `SKILL.md` 的 Agent Skills 宿主。它根据中文心理学或思想类文案，生成完整的 Remotion v4 TypeScript 工程，并交付可运行的 zip。
 
 ## 能力范围
 
@@ -13,11 +13,37 @@
 - 修改文案时只重做变更 cue，同时重算全局时间轴和音效。
 - 包含交付检查脚本，覆盖运行入口、Remotion 版本、音效文件和 README 信息。
 
-## 安装为 Codex Skill
+## 安装到 Claude Code
+
+个人 skill，所有本地项目可用：
+
+```bash
+mkdir -p ~/.claude/skills
+git clone https://github.com/Lsous456/remotion-chinese-psychology-video-skill.git \
+  ~/.claude/skills/remotion-chinese-psychology-video
+```
+
+项目 skill，随仓库共享给团队：
+
+```bash
+mkdir -p .claude/skills
+git clone https://github.com/Lsous456/remotion-chinese-psychology-video-skill.git \
+  .claude/skills/remotion-chinese-psychology-video
+```
+
+Claude Code 会自动发现本地 skill。也可以直接调用：
+
+```text
+/remotion-chinese-psychology-video
+```
+
+如果 skill 是在 Claude Code 会话中新增的顶层目录，使用 `/reload-skills` 或重新打开会话。个人 skill 只在本机可用；如需 Cowork、云端会话或定时任务使用，需要按 claude.ai 的 Skill 上传流程单独启用。
+
+## 兼容 Codex Skill
 
 ```bash
 mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
-git clone <THIS_REPOSITORY_URL> \
+git clone https://github.com/Lsous456/remotion-chinese-psychology-video-skill.git \
   "${CODEX_HOME:-$HOME/.codex}/skills/remotion-chinese-psychology-video"
 ```
 
@@ -28,11 +54,12 @@ git clone <THIS_REPOSITORY_URL> \
 ## 使用示例
 
 ```text
-使用 $remotion-chinese-psychology-video，把下面文案做成完整 Remotion 工程，
-最后直接交付 zip。作者：XXX。
+/remotion-chinese-psychology-video
+
+把下面文案做成完整 Remotion 工程，最后直接交付 zip。作者：XXX。
 ```
 
-然后粘贴按句拆分的文案。建议同时提供：
+然后粘贴按句拆分的文案。Claude 也会在匹配的中文心理短文案需求中自动判断是否加载。建议同时提供：
 
 - 希望的视觉方向或必须避开的风格。
 - `baseHold`、`charsPerSecond`、`minDuration` 等时长参数。
@@ -43,6 +70,7 @@ git clone <THIS_REPOSITORY_URL> \
 
 ```text
 .
+├── CLAUDE.md
 ├── SKILL.md
 ├── agents/
 │   └── openai.yaml
