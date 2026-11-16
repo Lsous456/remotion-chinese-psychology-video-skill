@@ -1,9 +1,23 @@
 ---
 name: remotion-chinese-psychology-video
 description: Build complete Chinese psychology and thought-explainer short-video projects in Remotion from cue-based copy, including bespoke first-act direction, deterministic cue timing, synchronized sound effects, strict legibility, copy revisions, verification, and zip delivery. Use for Chinese psychology or ideas videos that need a complete runnable Remotion project; do not use for unrelated video edits or one-off Remotion snippets.
+metadata:
+  primary-host: "Claude Code"
+  slash-command: "/remotion-chinese-psychology-video"
+  runtime-requirements: "Node.js 18+, Remotion v4, TypeScript, and Python 3 with NumPy"
+  hosts: "Claude Code, Codex, and other Agent Skills hosts"
 ---
 
 # Remotion 中文心理短片
+
+## Claude Code 使用
+
+本 skill 主要面向 Claude Code。放在 `~/.claude/skills/remotion-chinese-psychology-video/` 或项目的 `.claude/skills/remotion-chinese-psychology-video/` 后：
+
+- 可直接输入 `/remotion-chinese-psychology-video` 调用。
+- 也可用自然语言提出中文心理或思想类短视频需求，让 Claude 根据 description 自动加载。
+- 只在任务需要时读取对应的 `references/` 文件，不要一次加载全部说明。
+- 遵循 Claude Code 当前的工具权限与会话目录；本 skill 不自行扩大权限。
 
 ## 交付目标
 
