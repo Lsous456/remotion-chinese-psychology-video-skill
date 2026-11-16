@@ -1,0 +1,4 @@
+interface:
+  display_name: "Remotion 中文心理短片"
+  short_description: "生成中文心理与思想类 Remotion 短片的完整工程"
+  default_prompt: "Use $remotion-chinese-psychology-video to turn this Chinese cue-based copy into a complete Remotion project and zip."
