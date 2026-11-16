@@ -12,7 +12,10 @@ metadata:
 
 ## Claude Code 使用
 
-本 skill 主要面向 Claude Code。放在 `~/.claude/skills/remotion-chinese-psychology-video/` 或项目的 `.claude/skills/remotion-chinese-psychology-video/` 后：
+本 skill 主要面向 Claude Code。安装到以下任一位置后即可使用：
+
+- 个人 skill：`~/.claude/skills/remotion-chinese-psychology-video/`
+- 项目 skill：`.claude/skills/remotion-chinese-psychology-video/`
 
 - 可直接输入 `/remotion-chinese-psychology-video` 调用。
 - 也可用自然语言提出中文心理或思想类短视频需求，让 Claude 根据 description 自动加载。
